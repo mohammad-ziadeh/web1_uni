@@ -1,208 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/fonts.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" href="assets/images/illustration-sun.svg" />
+    <title>WEB course</title>
 
     <style>
-        body {
-            font-family: 'DMMono-Regular', sans-serif;
-            background-color: #fff1e0;
-            color: #29241e;
-            display: grid;
-            grid-template-columns: 15% 1fr;
-            grid-template-rows: 7% 1fr 15%;
-            grid-template-areas:
-                "sidebar header"
-                "sidebar body"
-                "sidebar footer";
+        .main-body {
+            grid-area: body;
+            margin-top: 40px;
+            margin-left: 40px;
         }
 
-
-
-
-        .sidebar {
-            grid-area: sidebar;
-            display: grid;
-            min-height: 100vh;
-            grid-template-rows: 10% 1fr 15%;
-            grid-template-areas:
-                "side-header"
-                "side-body"
-                "side-footer";
-            border-right: 1px solid rgba(128, 128, 128, 0.288);
-        }
-
-        .sidebar-logo {
-            grid-area: side-header;
-            display: flex;
-            margin: auto;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.288);
-            width: 80%;
-        }
-
-        .logo {
-            width: 120px;
-            margin: 0 0 20px 0;
-        }
-
-        .words {
-            margin-left: 10px;
-        }
-
-        .word-top {
-            font-family: Fraunces-Italic;
+        .main-body h2 {
+            font-family: Fraunces-Variables;
             font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        .main-body ol h3 {
+            font-family: DMMono-Medium;
+            font-weight: 300;
+        }
+
+        .main-body li {
+            font-size: large;
+        }
+
+        .main-body .code {
+            font-size: large;
+            background-color: transparent;
+            margin-left: 10px;
+            border: none;
+            height: 20px;
+            padding: 0;
+            resize: none;
+            width: 300px;
+        }
+
+        .colored-text {
             color: #c55c2f;
-            margin-bottom: -20px;
-        }
-
-        .word-bottom {
-            font-family: Fraunces-Variables;
-            font-weight: 600;
-            display: flex;
-        }
-
-
-        .sidebar-nav {
-            grid-area: side-body;
-        }
-
-        .sidebar-list {
-            width: 80%;
-            list-style-type: none;
-            margin-left: -20px;
-        }
-
-        .sidebar-list li {
-            font-family: DMMono-Medium;
-            letter-spacing: -0.7px;
-            cursor: pointer;
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 2px 0 2px 15px;
-            margin-bottom: 10px;
-            color: #5a5856b7;
-            width: 100%;
-            height: 35px;
-            border-radius: 7px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .sidebar-list li:hover {
-            background-color: #ffffff;
-            color: #000000b7;
-        }
-
-
-        .nav-footer {
-            grid-area: side-footer;
-            margin-bottom: 0px;
-            margin: auto;
-            border-top: 1px dashed rgba(128, 128, 128, 0.288);
-            width: 80%;
-        }
-
-        .nav-footer p {
-            text-transform: uppercase;
-            color: rgba(128, 128, 128, 0.61);
-            font-size: small;
-        }
-
-
-
-
-        .header {
-            grid-area: header;
-            margin-left: 30px;
-            margin-top: 10px;
-        }
-
-        .quick-links {
-            display: flex;
-            gap: 15px;
-            color: rgba(128, 128, 128, 0.507);
-            cursor: pointer;
-        }
-
-
-        .quick-links div {
-            text-transform: uppercase;
-            font-size: small;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .quick-links div:hover {
-            color: #000000b7;
-        }
-
-
-        .title {
-            display: flex;
-
-        }
-
-        .title div:nth-child(1) {
-            font-family: Fraunces-Variables;
-            font-size: xx-large;
-        }
-
-        .title div:nth-child(2) {
-            margin-left: 8px;
             font-family: Fraunces-Italic;
-            font-size: xx-large;
-            color: #b9542a;
+            font-size: 20px;
         }
 
+        .html-starter-ul {
+            margin-top: 10px;
+            list-style-type: circle;
 
-
-        .header-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-right: 30px;
         }
 
-        .header-buttons {
-
-            display: flex;
-            gap: 15px;
-        }
-
-        .header-buttons button {
-            font-family: DMMono-Medium;
-            padding: 8px 12px 8px 12px;
-            border-radius: 20px;
-        }
-
-        .header-buttons button:nth-child(1) {
-            background-color: #fff1e0;
-            border: 1px solid #29241ec0;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .header-buttons button:nth-child(1):hover {
-            background-color: #29241e;
-            border: 1px solid #29241e83;
-            color: #fff1e0;
-        }
-
-        .header-buttons button:nth-child(2) {
-            background-color: #29241e;
-            color: #fff1e0;
-            border: 1px solid #29241e;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .header-buttons button:nth-child(2):hover {
-            background-color: #29241ee8;
-            border: 1px solid #29241ee8;
+        .html-starter-ul li {
+            margin-bottom: 7px;
         }
     </style>
 </head>
@@ -210,63 +63,223 @@
 <body>
     <section class="sidebar">
         <div class="sidebar-logo">
-            <img class="logo" src="assets/images/logo.svg" alt="sun-logo">
+            <img class="logo" height="50px" src="assets/images/illustration-sun.svg" alt="sun-logo" />
+            <h2>Mohammad Ziadeh</h2>
         </div>
         <div class="horizontal-line"></div>
-
 
         <div class="sidebar-nav">
             <ul class="sidebar-list">
                 <li>
-                    <img height="25px" src="assets/images/icon-bed.svg" alt="bed-icon">
-                    Your stay
+                    <div class="drop-list-header">
+                        <img height="25px" src="assets/images/icon-house.svg" alt="bed-icon" />
+                        Home
+                    </div>
+
                 </li>
                 <li>
-                    <img height="25px" src="assets/images/icon-house.svg" alt="bed-icon">
-                    The house
+                    <div class="drop-list-header">
+                        <img height="25px" src="assets/images/page.svg" alt="bed-icon" />
+                        <span>First Part</span>
+                    </div>
+                    <ul class="sidebar-sub-list">
+                        <a href="#BlockvsInline">
+                            <li>Block vs Inline</li>
+                        </a>
+                        <li><a href="#HTMLStarters">HTML Starters</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <img height="25px" src="assets/images/icon-pin.svg" alt="bed-icon">
-                    Around town
+                    <div class="drop-list-header">
+                        <img height="25px" src="assets/images/page.svg" alt="bed-icon" />
+                        Page 2
+                    </div>
+
                 </li>
                 <li>
-                    <img height="25px" src="assets/images/icon-breakfast-outline.svg" alt="bed-icon">
-                    Breakfast
+                    <div class="drop-list-header">
+                        <img height="25px" src="assets/images/page.svg" alt="bed-icon" />
+                        Page 3
+                    </div>
+
                 </li>
                 <li>
-                    <img height="25px" src="assets/images/icon-mail.svg" alt="bed-icon">
-                    Messages
+                    <div class="drop-list-header">
+                        <img height="25px" src="assets/images/page.svg" alt="bed-icon" />
+                        Page 4
+                    </div>
                 </li>
             </ul>
         </div>
 
         <div class="nav-footer">
-            <p>est. 1987</p>
-            <p>maison soleil . 12 rue des<br>oliviers . cassis</p>
-            <p>&copy; 2026 maison soleil</p>
-
+            <p>summer 2026</p>
+            <p>summer of second year<br />yeah too late for this course</p>
+            <p>&copy; 2026 Mohammad ziadeh</p>
         </div>
     </section>
     <main>
         <div class="header">
             <div class="quick-links">
-                <div>Booking</div>
+                <div>Kinda</div>
                 <span>.</span>
-                <div>Confirmed</div>
+                <div>Late</div>
             </div>
             <div class="header-bottom">
                 <div class="title">
-                    <div>Bienvenue, </div>
-                    <div>Lucia</div>
+                    <div>Things I learnt in:</div>
+                    <div>Web1</div>
+                    <div>(UNI course)</div>
                 </div>
                 <div class="header-buttons">
-                    <button>Print receipt</button>
+                    <button onclick="window.print()">Print receipt</button>
                     <button>Add to calender</button>
                 </div>
             </div>
-
         </div>
+        <section class="main-body">
+            <h2>
+                First part
+                <span class="colored-text">(HTML Thingies)</span> :
+            </h2>
+            <ol>
+                <li id="BlockvsInline">
+                    <h3>
+                        Block
+                        <span class="colored-text">VS</span> Inline Elements
+                    </h3>
+                    <ul>
+                        <li>
+                            Block Element take the full page width so u can't stack elements
+                            beside each others without (css) <br />
+                            <span class="colored-text">Example:</span>
+                        </li>
+                        <p style="background-color: #c55c2f; color: white; padding: 5px">
+                            This is a (p) which is a block Element
+                        </p>
+                        <li>
+                            Inline Element take only the width that the text inside it need
+                            so u can stack elements beside each others without (css) <br />
+                            <span class="colored-text">Example:</span>
+                            <br />
+                            <br />
+                            <span style=" background-color: #c55c2f; color: white; padding: 5px; margin-top: 10px;">
+                                This is a (span) which is a Inline Element
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+                <br />
+                <hr style="border: 1px solid #121212" />
+                <br />
+                <li id="HTMLStarters">
+                    <h3>HTML Starters</h3>
+                    <ul style="list-style-type:disc;">
+                        <!-- # HEADINGS # -->
+                        <li>
+                            <span style="display: flex; align-items: center">
+                                (Headings) are like titles to your HTML page, they range from (1-6) &lt;h1&gt; being the
+                                biggest and &lt;h6&gt; the smallest
+
+                            </span>
+                            <br>
+                            <span class="colored-text">Infos:</span>
+                            <ul class="html-starter-ul">
+                                <li>
+                                    Each HTML should have one and only one &lt;h1&gt;
+                                </li>
+
+                                <li>
+                                    &lt;h1&gt; is an block element
+                                </li>
+                            </ul>
+                        </li>
+
+                        <br>
+                        <br>
+                        <br>
+                        <!-- # ATTRIBUTEs # -->
+                        <li>
+                            <span style="display: flex; align-items: center">
+                                (Attributes) are what you add inside the HTML tag such as the src
+                                and alt inside
+                                <textarea class="code" readonly disabled><img src="" alt=""></textarea>
+
+                            </span>
+                            <br>
+                            <span class="colored-text">Example:</span>
+                            <ul class="html-starter-ul">
+                                <li>
+                                    The <code>href</code> attribute of <code>&lt;a&gt;</code> specifies the URL of
+                                    the page the link goes to:
+                                    <textarea class="code" readonly disabled><a href=""></a></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>src</code> attribute of <code>&lt;img&gt;</code> specifies the path to
+                                    the image to be displayed:
+                                    <textarea class="code" readonly disabled><img src="" alt=""></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>width</code> and <code>height</code> attributes of
+                                    <code>&lt;img&gt;</code> provide size information for images:
+                                    <textarea class="code" readonly disabled><img src="" width="" height=""></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>alt</code> attribute of <code>&lt;img&gt;</code> provides an alternate
+                                    text for an image:
+                                    <textarea class="code" readonly disabled><img src="" alt=""></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>style</code> attribute is used to add styles to an element, such as
+                                    color, font, size, and more:
+                                    <textarea class="code" readonly disabled><p style=""></p></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>lang</code> attribute of the <code>&lt;html&gt;</code> tag declares
+                                    the language of the Web page:
+                                    <textarea class="code" readonly disabled><html lang="en"></html></textarea>
+                                </li>
+
+                                <li>
+                                    The <code>title</code> attribute defines some extra information about an
+                                    element:
+                                    <textarea class="code" readonly disabled><p title=""></p></textarea>
+                                </li>
+                            </ul>
+                        </li>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- # SOME TAGS # -->
+                        <li>
+                            <span style="display: flex; align-items: center">
+                                (Tags) are what is inside &lt; here &gt; there is a huge number of tags in HTML
+                            </span>
+                            <br>
+                            <span class="colored-text">And here are some useful HTML tags :</span>
+                            <ul class="html-starter-ul">
+                                <li>
+                                    Each HTML should have one and only one &lt;h1&gt;
+                                </li>
+
+                                <li>
+                                    &lt;h1&gt; is an block element
+                                </li>
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
     </main>
+
 </body>
 
 </html>
